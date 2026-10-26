@@ -1,0 +1,66 @@
+name: Release
+
+# Cut a release by pushing a tag: git tag v1.0.2 && git push --tags
+# The workflow packages the plugin, computes its sha256 and puts the entry for
+# the Tulpar marketplace registry (registry.json) in the release notes.
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tag matches the manifest version
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          MANIFEST_VERSION="$(python3 -c "import json;print(json.load(open('plugin.json'))['version'])")"
+          if [ "$TAG_VERSION" != "$MANIFEST_VERSION" ]; then
+            echo "Tag says $TAG_VERSION but plugin.json says $MANIFEST_VERSION." >&2
+            exit 1
+          fi
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Tests
+        run: composer install --no-interaction --no-progress && vendor/bin/phpunit
+
+      - name: Package
+        run: zip -r plugin.zip plugin.json src README.md LICENSE
+
+      - name: Registry entry
+        id: entry
+        run: |
+          SHA="$(sha256sum plugin.zip | cut -d' ' -f1)"
+          VERSION="${GITHUB_REF_NAME#v}"
+          URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/plugin.zip"
+          {
+            echo 'notes<<EOF'
+            echo 'Version entry for the Tulpar marketplace registry (registry.json):'
+            echo ''
+            echo '```json'
+            echo '{'
+            echo "  \"version\": \"${VERSION}\","
+            echo "  \"url\": \"${URL}\","
+            echo "  \"sha256\": \"${SHA}\","
+            echo "  \"minTulparVersion\": \"1.0.0\","
+            echo "  \"releasedAt\": \"$(date -u +%F)\""
+            echo '}'
+            echo '```'
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: plugin.zip
+          body: ${{ steps.entry.outputs.notes }}

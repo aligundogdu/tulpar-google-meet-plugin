@@ -1,0 +1,25 @@
+{
+    "name": "aligundogdu/tulpar-google-meet-plugin",
+    "description": "Tulpar plugin: create a Google Meet link from the message box in one click",
+    "type": "tulpar-plugin",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.2",
+        "ext-json": "*",
+        "ext-openssl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload-dev": {
+        "classmap": ["src/"],
+        "psr-4": { "Tests\\": "tests/" },
+        "files": ["tests/stubs/PluginContext.php"]
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

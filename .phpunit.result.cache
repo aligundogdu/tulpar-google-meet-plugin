@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"Tests\\PluginTest::testCreatesALinkAsThePersonAndReusesTheToken":0.021,"Tests\\PluginTest::testAsksForSetupWhenTheKeyIsMissing":0,"Tests\\PluginTest::testSpeaksThePersonsLanguage":0,"Tests\\PluginTest::testExplainsARefusedDelegation":0.028}}
