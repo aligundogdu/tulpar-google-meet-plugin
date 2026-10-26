@@ -2,3 +2,4 @@ vendor/
 .phpunit.cache/
 composer.lock
 plugin.zip
+.phpunit.result.cache
