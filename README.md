@@ -4,7 +4,7 @@
 
 **One click in the message box. A fresh Google Meet link, created as you, dropped right into the conversation.**
 
-[![Tulpar plugin](https://img.shields.io/badge/Tulpar-plugin-6366F1?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMCAySDRhMiAyIDAgMCAwLTIgMnYxOGw0LTRoMTRhMiAyIDAgMCAwIDItMlY0YTIgMiAwIDAgMC0yLTJ6Ii8+PC9zdmc+)](https://www.tulpar.dev)
+[![Tulpar plugin](https://img.shields.io/badge/Tulpar-plugin-6366F1?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMCAySDRhMiAyIDAgMCAwLTIgMnYxOGw0LTRoMTRhMiAyIDAgMCAwIDItMlY0YTIgMiAwIDAgMC0yLTJ6Ii8+PC9zdmc+)](https://tulpar.chat)
 [![Google Meet API](https://img.shields.io/badge/Google%20Meet-REST%20API%20v2-00897B?style=for-the-badge&logo=googlemeet&logoColor=white)](https://developers.google.com/meet/api/guides/overview)
 [![Release](https://img.shields.io/github/v/release/aligundogdu/tulpar-google-meet-plugin?style=for-the-badge&color=4F46E5)](https://github.com/aligundogdu/tulpar-google-meet-plugin/releases)
 [![Tests](https://img.shields.io/github/actions/workflow/status/aligundogdu/tulpar-google-meet-plugin/tests.yml?branch=main&label=tests&style=for-the-badge)](https://github.com/aligundogdu/tulpar-google-meet-plugin/actions/workflows/tests.yml)
@@ -234,5 +234,5 @@ The release workflow runs the tests, builds `plugin.zip`, and writes the ready-t
 
 <div align="center">
 <br>
-<sub>Built for <a href="https://www.tulpar.dev">Tulpar</a>, the team chat that lets you own your data.</sub>
+<sub>Built for <a href="https://tulpar.chat">Tulpar</a>, the team chat that lets you own your data.</sub>
 </div>
